@@ -41,10 +41,18 @@ html {
 body {
   min-height: 100dvh;
   display: grid;
-  grid-template-rows: 100vh 10vh;
+  grid-template-rows: 1fr 5vh;
+  align-items: center;
+  background-color: slategray;
 }
 
 .container {
+  z-index: 0;
+  position: relative;
+  align-self: center;
+  max-width: 400px;
+  background-color: white;
+  margin: auto;
   width: 100%;
   color: hsl(234, 29%, 20%);
   font-family: 'Roboto';
@@ -107,13 +115,65 @@ body {
   background-color: hsl(234, 29%, 20%);
   color: white;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+.formContainer form button:hover {
+  background-color: hsl(4, 100%, 67%);
 }
 
 .illustrationDesktop {
   display: none;
 }
 .success {
-  display: none;
+  font-family: 'Roboto';
+  position: fixed;
+  height: 100vh;
+  backdrop-filter: blur(10px);
+  width: 100%;
+  inset: 0;
+}
+.success .message {
+  padding: 8rem 0;
+}
+.success h2 {
+  font-family: 'Roboto Bold';
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+  margin: 1rem 0;
+}
+.success img {
+  height: 4rem;
+  margin: 1rem 0;
+}
+.success .successContainer {
+  padding: 2rem 1rem;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.success button {
+  height: 3.5rem;
+  width: 100%;
+  border: none;
+  border-radius: 0.3rem;
+  color: white;
+  background-color: hsl(234, 29%, 20%);
+  font-family: 'Roboto Bold';
+  box-shadow: 1px 2px 3px hsl(231, 7%, 60%);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.success button:focus {
+  background-color: hsl(4, 100%, 67%);
+}
+.success button:hover {
+  background-color: hsl(4, 100%, 67%);
 }
 
 .attribution {
@@ -121,4 +181,33 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media (width > 750px) {
+  .container {
+    margin: auto;
+    flex-direction: row;
+    padding: 1rem;
+    border-radius: 1rem;
+    max-width: 800px;
+  }
+  .illustrationMobile {
+    display: none;
+  }
+  .illustrationDesktop {
+    display: block;
+    width: 50%;
+  }
+  .success {
+    display: none;
+    height: 60%;
+    width: 50%;
+    border-radius: 1rem;
+    padding: 2rem;
+    margin: auto;
+  }
+  .success .successContainer {
+    display: flex;
+    flex-direction: column;
+  }
 }
